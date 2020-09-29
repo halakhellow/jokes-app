@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import emoji from "./images/emoji.png";
+import Joke from "./Joke";
 import "./JokesList.css";
 
 class JokesList extends Component {
@@ -21,7 +22,7 @@ class JokesList extends Component {
         headers: { Accept: "application/json" },
       });
       let data = await res.json();
-      jokes.push(data.joke);
+      jokes.push({ joke: data.joke, votes: 0 });
     }
     this.setState({ jokes: jokes });
   }
@@ -36,7 +37,7 @@ class JokesList extends Component {
         </div>
         <div className="JokesList-jokes">
           {this.state.jokes.map((joke) => (
-            <div>{joke}</div>
+            <Joke votes={joke.votes} joke={joke.joke} />
           ))}
         </div>
       </div>
