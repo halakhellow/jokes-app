@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import emoji from "./images/emoji.png";
+import "./JokesList.css";
 
 class JokesList extends Component {
   static defaultProps = {
@@ -26,11 +28,17 @@ class JokesList extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Dad Jokes</h1>
-        {this.state.jokes.map((joke) => (
-          <div>{joke}</div>
-        ))}
+      <div className="JokesList">
+        <div className="JokesList-aside">
+          <h1>Dad Jokes</h1>
+          <img src={emoji} alt="laughing-emoji" />
+          <button>New Jokes</button>
+        </div>
+        <div className="JokesList-jokes">
+          {this.state.jokes.map((joke) => (
+            <div>{joke}</div>
+          ))}
+        </div>
       </div>
     );
   }
