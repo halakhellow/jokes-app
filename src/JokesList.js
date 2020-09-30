@@ -14,6 +14,7 @@ class JokesList extends Component {
       jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]"),
       loading: false,
     };
+    this.seenJokes = new Set(this.state.jokes.map((joke) => joke.text));
     this.getNewJokes = this.getNewJokes.bind(this);
   }
 
@@ -29,7 +30,8 @@ class JokesList extends Component {
         headers: { Accept: "application/json" },
       });
       let data = await res.json();
-      jokes.push({ text: data.joke, votes: 0, id: uuidv4() });
+      if (!this.seenJokes.has(data.joke))
+        jokes.push({ text: data.joke, votes: 0, id: uuidv4() });
     }
     this.setState(
       (st) => ({ loading: false, jokes: [...st.jokes, ...jokes] }),
