@@ -34,3 +34,8 @@
 .Joke-text {
     width: 75%;
 }
+
+.em {
+    font-size: 2rem;
+    margin-left: auto;
+}
