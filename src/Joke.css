@@ -1,0 +1,36 @@
+.Joke {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    padding: 1rem;
+    border-bottom: 1px solid blue;
+}
+
+.Joke-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    margin-right: 1rem;
+}
+
+.Joke-btns span {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: .3rem;
+    border: 2px solid red;
+    border-radius: 50%;
+}
+
+.Joke-btns i {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.Joke-text {
+    width: 75%;
+}
