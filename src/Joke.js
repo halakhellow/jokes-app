@@ -11,6 +11,7 @@ class Joke extends Component {
           <i className="fas fa-arrow-down" onClick={this.props.downvote}></i>
         </div>
         <div className="Joke-text">{this.props.joke}</div>
+        <i className="em em-confused"></i>
       </div>
     );
   }
