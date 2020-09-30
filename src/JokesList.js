@@ -11,11 +11,15 @@ class JokesList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      jokes: [],
+      jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]"),
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    if (this.state.jokes.length === 0) this.getJokes();
+  }
+
+  async getJokes() {
     let jokes = [];
     //while loop is sync and fetch is async => that's why we have to use async await here
     while (jokes.length < this.props.jokesNum) {
@@ -26,14 +30,19 @@ class JokesList extends Component {
       jokes.push({ text: data.joke, votes: 0, id: uuidv4() });
     }
     this.setState({ jokes: jokes });
+    window.localStorage.setItem("jokes", JSON.stringify(jokes));
   }
 
   handleVotes(id, delta) {
-    this.setState((st) => ({
-      jokes: st.jokes.map((joke) =>
-        joke.id === id ? { ...joke, votes: joke.votes + delta } : joke
-      ),
-    }));
+    this.setState(
+      (st) => ({
+        jokes: st.jokes.map((joke) =>
+          joke.id === id ? { ...joke, votes: joke.votes + delta } : joke
+        ),
+      }),
+      () =>
+        window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
+    );
   }
 
   render() {
