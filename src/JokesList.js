@@ -73,15 +73,17 @@ class JokesList extends Component {
             <button onClick={this.getNewJokes}>New Jokes</button>
           </div>
           <div className="JokesList-jokes">
-            {this.state.jokes.map((joke) => (
-              <Joke
-                key={joke.id}
-                votes={joke.votes}
-                joke={joke.text}
-                upvote={() => this.handleVotes(joke.id, 1)}
-                downvote={() => this.handleVotes(joke.id, -1)}
-              />
-            ))}
+            {this.state.jokes
+              .sort((a, b) => b.votes - a.votes)
+              .map((joke) => (
+                <Joke
+                  key={joke.id}
+                  votes={joke.votes}
+                  joke={joke.text}
+                  upvote={() => this.handleVotes(joke.id, 1)}
+                  downvote={() => this.handleVotes(joke.id, -1)}
+                />
+              ))}
           </div>
         </div>
       );
