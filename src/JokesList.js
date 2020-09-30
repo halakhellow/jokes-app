@@ -13,6 +13,7 @@ class JokesList extends Component {
     this.state = {
       jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]"),
     };
+    this.getNewJokes = this.getNewJokes.bind(this);
   }
 
   componentDidMount() {
@@ -29,8 +30,11 @@ class JokesList extends Component {
       let data = await res.json();
       jokes.push({ text: data.joke, votes: 0, id: uuidv4() });
     }
-    this.setState({ jokes: jokes });
-    window.localStorage.setItem("jokes", JSON.stringify(jokes));
+    this.setState(
+      (st) => ({ jokes: [...st.jokes, ...jokes] }),
+      () =>
+        window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
+    );
   }
 
   handleVotes(id, delta) {
@@ -45,13 +49,17 @@ class JokesList extends Component {
     );
   }
 
+  getNewJokes() {
+    this.getJokes();
+  }
+
   render() {
     return (
       <div className="JokesList">
         <div className="JokesList-aside">
           <h1>Dad Jokes</h1>
           <img src={emoji} alt="laughing-emoji" />
-          <button>New Jokes</button>
+          <button onClick={this.getNewJokes}>New Jokes</button>
         </div>
         <div className="JokesList-jokes">
           {this.state.jokes.map((joke) => (
