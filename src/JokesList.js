@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import emoji from "./images/emoji.png";
+import { v4 as uuidv4 } from "uuid";
 import Joke from "./Joke";
 import "./JokesList.css";
 
@@ -22,7 +23,7 @@ class JokesList extends Component {
         headers: { Accept: "application/json" },
       });
       let data = await res.json();
-      jokes.push({ joke: data.joke, votes: 0 });
+      jokes.push({ text: data.joke, votes: 0, id: uuidv4() });
     }
     this.setState({ jokes: jokes });
   }
@@ -37,7 +38,7 @@ class JokesList extends Component {
         </div>
         <div className="JokesList-jokes">
           {this.state.jokes.map((joke) => (
-            <Joke votes={joke.votes} joke={joke.joke} />
+            <Joke key={joke.id} votes={joke.votes} joke={joke.text} />
           ))}
         </div>
       </div>
