@@ -60,7 +60,7 @@ class JokesList extends Component {
     if (this.state.loading) {
       return (
         <div className="loader">
-          <i className="far fa-8x fa-laugh fa-spin"></i>
+          <i className="far fa-8x fa-grin-stars fa-spin"></i>
           <h1>Loading ...</h1>
         </div>
       );
