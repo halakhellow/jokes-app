@@ -13,6 +13,17 @@
     width: 30%;
 }
 
+.JokesList-aside h1 {
+    font-style: italic;
+    letter-spacing: 2px;
+    word-spacing: 7px;
+    font-size: 2.5rem;
+}
+
+.JokesList-aside h1 span {
+    opacity: .8;
+}
+
 .JokesList-aside img {
     width: 50%;
 }

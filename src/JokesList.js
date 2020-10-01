@@ -68,7 +68,9 @@ class JokesList extends Component {
       return (
         <div className="JokesList">
           <div className="JokesList-aside">
-            <h1>Dad Jokes</h1>
+            <h1>
+              Dad <span>Jokes</span>
+            </h1>
             <img src={emoji} alt="laughing-emoji" />
             <button onClick={this.getNewJokes}>New Jokes</button>
           </div>
