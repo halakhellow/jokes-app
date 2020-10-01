@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: cornflowerblue;
+  background-color: #0cbaba;
+  background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
   font-family: 'Noto Serif', serif;
   color: whitesmoke;
 }
