@@ -27,8 +27,12 @@
 }
 
 .Joke-btns i {
-    font-size: 1.5em;
+    font-size: 1.2em;
     cursor: pointer;
+}
+
+.fa-thumbs-down {
+    transform: scaleX(-1);
 }
 
 .Joke-text {
