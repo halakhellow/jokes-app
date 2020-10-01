@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/jokes-app/static/css/main.7530ccfc.chunk.css",
+    "main.js": "/jokes-app/static/js/main.900e4340.chunk.js",
+    "main.js.map": "/jokes-app/static/js/main.900e4340.chunk.js.map",
+    "runtime-main.js": "/jokes-app/static/js/runtime-main.48a26c1e.js",
+    "runtime-main.js.map": "/jokes-app/static/js/runtime-main.48a26c1e.js.map",
+    "static/js/2.15fed54f.chunk.js": "/jokes-app/static/js/2.15fed54f.chunk.js",
+    "static/js/2.15fed54f.chunk.js.map": "/jokes-app/static/js/2.15fed54f.chunk.js.map",
+    "index.html": "/jokes-app/index.html",
+    "precache-manifest.79b6deaa4fa84ce8cae911f249f2f667.js": "/jokes-app/precache-manifest.79b6deaa4fa84ce8cae911f249f2f667.js",
+    "service-worker.js": "/jokes-app/service-worker.js",
+    "static/css/main.7530ccfc.chunk.css.map": "/jokes-app/static/css/main.7530ccfc.chunk.css.map",
+    "static/js/2.15fed54f.chunk.js.LICENSE.txt": "/jokes-app/static/js/2.15fed54f.chunk.js.LICENSE.txt",
+    "static/media/emoji.png": "/jokes-app/static/media/emoji.a4b8080a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.48a26c1e.js",
+    "static/js/2.15fed54f.chunk.js",
+    "static/css/main.7530ccfc.chunk.css",
+    "static/js/main.900e4340.chunk.js"
+  ]
+}
