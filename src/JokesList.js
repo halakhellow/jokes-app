@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import emoji from "./images/emoji.png";
+import FlipMove from "react-flip-move";
 import { v4 as uuidv4 } from "uuid";
+
 import Joke from "./Joke";
+
+import emoji from "./images/emoji.png";
+
 import "./JokesList.css";
 
 class JokesList extends Component {
@@ -74,18 +78,20 @@ class JokesList extends Component {
             <img src={emoji} alt="laughing-emoji" />
             <button onClick={this.getNewJokes}>New Jokes</button>
           </div>
-          <div className="JokesList-jokes">
-            {this.state.jokes
-              .sort((a, b) => b.votes - a.votes)
-              .map((joke) => (
-                <Joke
-                  key={joke.id}
-                  votes={joke.votes}
-                  joke={joke.text}
-                  upvote={() => this.handleVotes(joke.id, 1)}
-                  downvote={() => this.handleVotes(joke.id, -1)}
-                />
-              ))}
+          <div className="JokesList-jokes scrollbar">
+            <FlipMove>
+              {this.state.jokes
+                .sort((a, b) => b.votes - a.votes)
+                .map((joke) => (
+                  <Joke
+                    key={joke.id}
+                    votes={joke.votes}
+                    joke={joke.text}
+                    upvote={() => this.handleVotes(joke.id, 1)}
+                    downvote={() => this.handleVotes(joke.id, -1)}
+                  />
+                ))}
+            </FlipMove>
           </div>
         </div>
       );
