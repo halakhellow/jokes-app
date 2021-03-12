@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import Joke from "../Joke/Joke";
 import Loader from "../Loader/Loader";
+import CustomBtn from "../CustomBtn/CustomBtn";
 
 import emoji from "../../images/emoji.png";
 
@@ -60,6 +61,20 @@ class JokesList extends Component {
     this.setState({ loading: true }, this.getJokes);
   };
 
+  deleteJoke(id) {
+    this.setState(
+      (st) => ({
+        jokes: st.jokes.filter((joke) => joke.id !== id),
+      }),
+      () =>
+        window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
+    );
+  }
+
+  clearJokes = () => {
+    this.setState({ jokes: [] });
+  };
+
   render() {
     let { loading, jokes } = this.state;
     return loading ? (
@@ -71,7 +86,7 @@ class JokesList extends Component {
             Dad <span>Jokes</span>
           </h1>
           <img src={emoji} alt="laughing-emoji" />
-          <button onClick={this.getNewJokes}>New Jokes</button>
+          <CustomBtn handleClick={this.getNewJokes} text="New Jokes" />
         </div>
         <div className="JokesList-jokes scrollbar">
           <FlipMove>
@@ -84,9 +99,13 @@ class JokesList extends Component {
                   joke={joke.text}
                   upvote={() => this.handleVotes(joke.id, 1)}
                   downvote={() => this.handleVotes(joke.id, -1)}
+                  delete={() => this.deleteJoke(joke.id)}
                 />
               ))}
           </FlipMove>
+          {jokes.length !== 0 && (
+            <CustomBtn handleClick={this.clearJokes} text="Clear Jokes" />
+          )}
         </div>
       </div>
     );

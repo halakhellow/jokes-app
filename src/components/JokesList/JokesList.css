@@ -81,20 +81,6 @@
   }
 }
 
-.JokesList-aside button {
-  font-family: inherit;
-  padding: 5px;
-  width: 6rem;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  margin-top: -2rem;
-  background-color: #380036;
-  color: inherit;
-  box-shadow: 0px 3px 6px black;
-}
-
 .JokesList-jokes {
   height: 90%;
   color: black;
