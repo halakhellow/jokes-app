@@ -48,3 +48,19 @@
   font-size: 1.7rem;
   margin-left: auto;
 }
+
+.Joke button {
+  display: none;
+  margin-left: 6px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  cursor: pointer;
+  width: 2rem;
+  height: 1.5rem;
+  background-color: transparent;
+}
+
+.Joke:hover button {
+  display: inline;
+}

@@ -37,6 +37,7 @@ class Joke extends Component {
         </div>
         <div className="Joke-text">{this.props.joke}</div>
         <i className={this.getEmoji()}></i>
+        <button onClick={this.props.delete}>&#10006;</button>
       </div>
     );
   }
