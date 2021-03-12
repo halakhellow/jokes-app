@@ -1,0 +1,118 @@
+.JokesList {
+  display: flex;
+  width: 80%;
+  height: 80%;
+}
+
+.JokesList-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #1e6f85;
+  width: 30%;
+}
+
+.JokesList-aside h1 {
+  font-style: italic;
+  letter-spacing: 2px;
+  word-spacing: 7px;
+  font-size: 2.5rem;
+}
+
+.JokesList-aside h1 span {
+  opacity: 0.8;
+}
+
+.JokesList-aside img {
+  width: 50%;
+  margin-top: -4rem;
+  box-shadow: 0px 2px 10px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+.JokesList-aside img:hover {
+  animation: shake 2s;
+}
+
+@keyframes shake {
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  0% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(0px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(2px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(2px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+.JokesList-aside button {
+  font-family: inherit;
+  padding: 5px;
+  width: 6rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: -2rem;
+  background-color: #380036;
+  color: inherit;
+  box-shadow: 0px 3px 6px black;
+}
+
+.JokesList-jokes {
+  height: 90%;
+  color: black;
+  width: 70%;
+  align-self: center;
+  overflow: auto;
+  background-color: #f5f5f5;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}

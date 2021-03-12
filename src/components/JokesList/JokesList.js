@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import FlipMove from "react-flip-move";
 import { v4 as uuidv4 } from "uuid";
 
-import Joke from "./Joke";
+import Joke from "../Joke/Joke";
+import Loader from "../Loader/Loader";
 
-import emoji from "./images/emoji.png";
+import emoji from "../../images/emoji.png";
 
 import "./JokesList.css";
 
@@ -19,11 +20,10 @@ class JokesList extends Component {
       loading: false,
     };
     this.seenJokes = new Set(this.state.jokes.map((joke) => joke.text));
-    this.getNewJokes = this.getNewJokes.bind(this);
   }
 
   componentDidMount() {
-    if (this.state.jokes.length === 0) this.getJokes();
+    this.state.jokes.length === 0 && this.getJokes();
   }
 
   async getJokes() {
@@ -56,46 +56,40 @@ class JokesList extends Component {
     );
   }
 
-  getNewJokes() {
+  getNewJokes = () => {
     this.setState({ loading: true }, this.getJokes);
-  }
+  };
 
   render() {
-    if (this.state.loading) {
-      return (
-        <div className="loader">
-          <i className="far fa-8x fa-grin-stars fa-spin"></i>
-          <h1>Loading ...</h1>
+    let { loading, jokes } = this.state;
+    return loading ? (
+      <Loader />
+    ) : (
+      <div className="JokesList">
+        <div className="JokesList-aside">
+          <h1>
+            Dad <span>Jokes</span>
+          </h1>
+          <img src={emoji} alt="laughing-emoji" />
+          <button onClick={this.getNewJokes}>New Jokes</button>
         </div>
-      );
-    } else {
-      return (
-        <div className="JokesList">
-          <div className="JokesList-aside">
-            <h1>
-              Dad <span>Jokes</span>
-            </h1>
-            <img src={emoji} alt="laughing-emoji" />
-            <button onClick={this.getNewJokes}>New Jokes</button>
-          </div>
-          <div className="JokesList-jokes scrollbar">
-            <FlipMove>
-              {this.state.jokes
-                .sort((a, b) => b.votes - a.votes)
-                .map((joke) => (
-                  <Joke
-                    key={joke.id}
-                    votes={joke.votes}
-                    joke={joke.text}
-                    upvote={() => this.handleVotes(joke.id, 1)}
-                    downvote={() => this.handleVotes(joke.id, -1)}
-                  />
-                ))}
-            </FlipMove>
-          </div>
+        <div className="JokesList-jokes scrollbar">
+          <FlipMove>
+            {jokes
+              .sort((a, b) => b.votes - a.votes)
+              .map((joke) => (
+                <Joke
+                  key={joke.id}
+                  votes={joke.votes}
+                  joke={joke.text}
+                  upvote={() => this.handleVotes(joke.id, 1)}
+                  downvote={() => this.handleVotes(joke.id, -1)}
+                />
+              ))}
+          </FlipMove>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 
