@@ -82,13 +82,21 @@ class JokesList extends Component {
     ) : (
       <div className="JokesList">
         <div className="JokesList-aside">
-          <h1>
-            Dad <span>Jokes</span>
-          </h1>
           <img src={emoji} alt="laughing-emoji" />
           <CustomBtn handleClick={this.getNewJokes} text="New Jokes" />
         </div>
-        <div className="JokesList-jokes scrollbar">
+        <div
+          className={`JokesList-jokes scrollbar ${
+            jokes.length === 0 && "bg-transparent"
+          }`}
+        >
+          {jokes.length === 0 && (
+            <div className="no-jokes">
+              <h1>No Jokes</h1>
+              <i className="em em-broken_heart"></i>
+              <h3>Fetch new ones</h3>
+            </div>
+          )}
           <FlipMove>
             {jokes
               .sort((a, b) => b.votes - a.votes)
@@ -104,7 +112,11 @@ class JokesList extends Component {
               ))}
           </FlipMove>
           {jokes.length !== 0 && (
-            <CustomBtn handleClick={this.clearJokes} text="Clear Jokes" />
+            <CustomBtn
+              clearBtn
+              handleClick={this.clearJokes}
+              text="Clear Jokes"
+            />
           )}
         </div>
       </div>
