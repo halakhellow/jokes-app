@@ -4,8 +4,7 @@
   justify-content: center;
   font-weight: 400;
   padding: 1rem;
-  border-bottom: 1.5px solid #0cbaba;
-  background: #fff;
+  background: #380036;
   border-radius: 3px;
   box-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
   margin: 12px 6px;
@@ -51,6 +50,7 @@
 
 .Joke button {
   display: none;
+  color: #3badcc;
   margin-left: 6px;
   border: none;
   outline: none;
