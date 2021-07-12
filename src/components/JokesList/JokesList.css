@@ -103,3 +103,29 @@
 .scrollbar::-webkit-scrollbar-thumb {
   background-color: #000000;
 }
+
+@media (max-width:400px) {
+  .JokesList {
+    display: block;
+    margin-top: 1rem;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .JokesList-aside {
+    margin-bottom: 1rem;
+    background-color: transparent;
+    width: 100%;
+  }
+  
+  .JokesList-aside img {
+    width: 20%;
+  }
+
+  .JokesList-jokes {
+    width: 90%;
+    height: auto;
+    margin: 2rem auto;
+  }
+  
+}
