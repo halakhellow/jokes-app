@@ -3,6 +3,15 @@
 }
 
 .Loader i {
-  margin-top: 8rem;
   margin: 8rem 2rem 0;
+}
+
+@media (max-width: 800px) {
+  .Loader {
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .Loader i {
+    margin: 4rem 3rem 0;
+  }
 }
